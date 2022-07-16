@@ -56,9 +56,6 @@
     <NoWin32Manifest>true</NoWin32Manifest>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="DropDownControls">
-      <HintPath>..\..\DropDownControls-115\DropDownControls.dll</HintPath>
-    </Reference>
     <Reference Include="MaterialSkin">
       <HintPath>..\..\..\source\repos\MaterialSkin\MaterialSkin\bin\Release\net461\win\MaterialSkin.dll</HintPath>
     </Reference>
@@ -167,7 +164,6 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="images\dofus_forgemagie-logo.png" />
     <Content Include="Resources\favicon.ico" />
     <None Include="Resources\form.png" />
   </ItemGroup>
