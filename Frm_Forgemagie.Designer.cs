@@ -31,14 +31,9 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Frm_Forgemagie));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btn_ok = new System.Windows.Forms.Button();
             this.panel_history = new System.Windows.Forms.FlowLayoutPanel();
-            this.runeAPasser1 = new Dofus_Fm.RuneAPasser();
-            this.runeRetirer1 = new Dofus_Fm.RuneRetirer();
             this.lbl_puit = new MaterialSkin.Controls.MaterialLabel();
-            this.comboBox_RuneAPasser = new Dofus_Fm.ComboBox_With_Groupage();
-            this.comboBox_RuneRetirer = new Dofus_Fm.ComboBox_With_Groupage();
-            this.comboBox_RuneSauterAvec = new Dofus_Fm.ComboBox_With_Groupage();
-            this.comboBox_RuneSauter = new Dofus_Fm.ComboBox_With_Groupage();
             this.lbl_reste = new MaterialSkin.Controls.MaterialLabel();
             this.btn_cbRunes = new MaterialSkin.Controls.MaterialButton();
             this.btn_retirer = new MaterialSkin.Controls.MaterialButton();
@@ -52,6 +47,12 @@
             this.btn_moins1 = new MaterialSkin.Controls.MaterialButton();
             this.btn_calculPuit = new MaterialSkin.Controls.MaterialButton();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
+            this.runeAPasser1 = new Dofus_Fm.RuneAPasser();
+            this.runeRetirer1 = new Dofus_Fm.RuneRetirer();
+            this.comboBox_RuneAPasser = new Dofus_Fm.ComboBox_With_Groupage();
+            this.comboBox_RuneRetirer = new Dofus_Fm.ComboBox_With_Groupage();
+            this.comboBox_RuneSauterAvec = new Dofus_Fm.ComboBox_With_Groupage();
+            this.comboBox_RuneSauter = new Dofus_Fm.ComboBox_With_Groupage();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -59,6 +60,7 @@
             // 
             this.panel1.BackColor = System.Drawing.Color.White;
             this.panel1.BackgroundImage = global::Dofus_Fm.Properties.Resources.form;
+            this.panel1.Controls.Add(this.btn_ok);
             this.panel1.Controls.Add(this.panel_history);
             this.panel1.Controls.Add(this.runeAPasser1);
             this.panel1.Controls.Add(this.runeRetirer1);
@@ -86,6 +88,22 @@
             this.panel1.TabIndex = 0;
             this.panel1.Click += new System.EventHandler(this.panel1_Click);
             // 
+            // btn_ok
+            // 
+            this.btn_ok.BackColor = System.Drawing.Color.White;
+            this.btn_ok.BackgroundImage = global::Dofus_Fm.Properties.Resources.Eo_circle_green_checkmark_svg;
+            this.btn_ok.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btn_ok.Enabled = false;
+            this.btn_ok.FlatAppearance.BorderSize = 0;
+            this.btn_ok.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_ok.Location = new System.Drawing.Point(643, 532);
+            this.btn_ok.Name = "btn_ok";
+            this.btn_ok.Size = new System.Drawing.Size(44, 36);
+            this.btn_ok.TabIndex = 38;
+            this.btn_ok.UseVisualStyleBackColor = false;
+            this.btn_ok.Visible = false;
+            this.btn_ok.Click += new System.EventHandler(this.btn_ok_Click);
+            // 
             // panel_history
             // 
             this.panel_history.AutoSize = true;
@@ -100,31 +118,6 @@
             this.panel_history.WrapContents = false;
             this.panel_history.SizeChanged += new System.EventHandler(this.panel_history_SizeChanged);
             // 
-            // runeAPasser1
-            // 
-            this.runeAPasser1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.runeAPasser1.BackColor = System.Drawing.Color.White;
-            this.runeAPasser1.cbRunes = "";
-            this.runeAPasser1.Font = new System.Drawing.Font("Roboto Condensed", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.runeAPasser1.Image = null;
-            this.runeAPasser1.Location = new System.Drawing.Point(367, 524);
-            this.runeAPasser1.MinimumSize = new System.Drawing.Size(205, 45);
-            this.runeAPasser1.Name = "runeAPasser1";
-            this.runeAPasser1.Size = new System.Drawing.Size(326, 46);
-            this.runeAPasser1.TabIndex = 36;
-            // 
-            // runeRetirer1
-            // 
-            this.runeRetirer1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.runeRetirer1.BackColor = System.Drawing.Color.White;
-            this.runeRetirer1.Font = new System.Drawing.Font("Roboto Condensed", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.runeRetirer1.Image = null;
-            this.runeRetirer1.Location = new System.Drawing.Point(411, 341);
-            this.runeRetirer1.MinimumSize = new System.Drawing.Size(205, 45);
-            this.runeRetirer1.Name = "runeRetirer1";
-            this.runeRetirer1.Size = new System.Drawing.Size(233, 46);
-            this.runeRetirer1.TabIndex = 35;
-            // 
             // lbl_puit
             // 
             this.lbl_puit.Depth = 0;
@@ -137,46 +130,6 @@
             this.lbl_puit.TabIndex = 34;
             this.lbl_puit.Text = "0";
             this.lbl_puit.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // comboBox_RuneAPasser
-            // 
-            this.comboBox_RuneAPasser.DropToTop = true;
-            this.comboBox_RuneAPasser.Location = new System.Drawing.Point(31, 520);
-            this.comboBox_RuneAPasser.MaximumSize = new System.Drawing.Size(275, 547);
-            this.comboBox_RuneAPasser.MinimumSize = new System.Drawing.Size(275, 50);
-            this.comboBox_RuneAPasser.Name = "comboBox_RuneAPasser";
-            this.comboBox_RuneAPasser.Size = new System.Drawing.Size(275, 50);
-            this.comboBox_RuneAPasser.TabIndex = 33;
-            // 
-            // comboBox_RuneRetirer
-            // 
-            this.comboBox_RuneRetirer.DropToTop = false;
-            this.comboBox_RuneRetirer.Location = new System.Drawing.Point(31, 337);
-            this.comboBox_RuneRetirer.MaximumSize = new System.Drawing.Size(275, 304);
-            this.comboBox_RuneRetirer.MinimumSize = new System.Drawing.Size(275, 50);
-            this.comboBox_RuneRetirer.Name = "comboBox_RuneRetirer";
-            this.comboBox_RuneRetirer.Size = new System.Drawing.Size(275, 50);
-            this.comboBox_RuneRetirer.TabIndex = 32;
-            // 
-            // comboBox_RuneSauterAvec
-            // 
-            this.comboBox_RuneSauterAvec.DropToTop = false;
-            this.comboBox_RuneSauterAvec.Location = new System.Drawing.Point(31, 126);
-            this.comboBox_RuneSauterAvec.MaximumSize = new System.Drawing.Size(275, 501);
-            this.comboBox_RuneSauterAvec.MinimumSize = new System.Drawing.Size(275, 50);
-            this.comboBox_RuneSauterAvec.Name = "comboBox_RuneSauterAvec";
-            this.comboBox_RuneSauterAvec.Size = new System.Drawing.Size(275, 50);
-            this.comboBox_RuneSauterAvec.TabIndex = 31;
-            // 
-            // comboBox_RuneSauter
-            // 
-            this.comboBox_RuneSauter.DropToTop = false;
-            this.comboBox_RuneSauter.Location = new System.Drawing.Point(31, 70);
-            this.comboBox_RuneSauter.MaximumSize = new System.Drawing.Size(275, 577);
-            this.comboBox_RuneSauter.MinimumSize = new System.Drawing.Size(275, 50);
-            this.comboBox_RuneSauter.Name = "comboBox_RuneSauter";
-            this.comboBox_RuneSauter.Size = new System.Drawing.Size(275, 50);
-            this.comboBox_RuneSauter.TabIndex = 30;
             // 
             // lbl_reste
             // 
@@ -526,6 +479,71 @@
             this.imageList1.Images.SetKeyName(93, "Rune Tac (4).png");
             this.imageList1.Images.SetKeyName(94, "Rune Vi (1).png");
             // 
+            // runeAPasser1
+            // 
+            this.runeAPasser1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.runeAPasser1.BackColor = System.Drawing.Color.White;
+            this.runeAPasser1.cbRunes = "";
+            this.runeAPasser1.Font = new System.Drawing.Font("Roboto Condensed", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.runeAPasser1.Image = null;
+            this.runeAPasser1.Location = new System.Drawing.Point(403, 524);
+            this.runeAPasser1.MinimumSize = new System.Drawing.Size(205, 45);
+            this.runeAPasser1.Name = "runeAPasser1";
+            this.runeAPasser1.Size = new System.Drawing.Size(233, 46);
+            this.runeAPasser1.TabIndex = 36;
+            // 
+            // runeRetirer1
+            // 
+            this.runeRetirer1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.runeRetirer1.BackColor = System.Drawing.Color.White;
+            this.runeRetirer1.Font = new System.Drawing.Font("Roboto Condensed", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.runeRetirer1.Image = null;
+            this.runeRetirer1.Location = new System.Drawing.Point(411, 341);
+            this.runeRetirer1.MinimumSize = new System.Drawing.Size(205, 45);
+            this.runeRetirer1.Name = "runeRetirer1";
+            this.runeRetirer1.Size = new System.Drawing.Size(233, 46);
+            this.runeRetirer1.TabIndex = 35;
+            // 
+            // comboBox_RuneAPasser
+            // 
+            this.comboBox_RuneAPasser.DropToTop = true;
+            this.comboBox_RuneAPasser.Location = new System.Drawing.Point(31, 520);
+            this.comboBox_RuneAPasser.MaximumSize = new System.Drawing.Size(275, 547);
+            this.comboBox_RuneAPasser.MinimumSize = new System.Drawing.Size(275, 50);
+            this.comboBox_RuneAPasser.Name = "comboBox_RuneAPasser";
+            this.comboBox_RuneAPasser.Size = new System.Drawing.Size(275, 50);
+            this.comboBox_RuneAPasser.TabIndex = 33;
+            // 
+            // comboBox_RuneRetirer
+            // 
+            this.comboBox_RuneRetirer.DropToTop = false;
+            this.comboBox_RuneRetirer.Location = new System.Drawing.Point(31, 337);
+            this.comboBox_RuneRetirer.MaximumSize = new System.Drawing.Size(275, 304);
+            this.comboBox_RuneRetirer.MinimumSize = new System.Drawing.Size(275, 50);
+            this.comboBox_RuneRetirer.Name = "comboBox_RuneRetirer";
+            this.comboBox_RuneRetirer.Size = new System.Drawing.Size(275, 50);
+            this.comboBox_RuneRetirer.TabIndex = 32;
+            // 
+            // comboBox_RuneSauterAvec
+            // 
+            this.comboBox_RuneSauterAvec.DropToTop = false;
+            this.comboBox_RuneSauterAvec.Location = new System.Drawing.Point(31, 126);
+            this.comboBox_RuneSauterAvec.MaximumSize = new System.Drawing.Size(275, 501);
+            this.comboBox_RuneSauterAvec.MinimumSize = new System.Drawing.Size(275, 50);
+            this.comboBox_RuneSauterAvec.Name = "comboBox_RuneSauterAvec";
+            this.comboBox_RuneSauterAvec.Size = new System.Drawing.Size(275, 50);
+            this.comboBox_RuneSauterAvec.TabIndex = 31;
+            // 
+            // comboBox_RuneSauter
+            // 
+            this.comboBox_RuneSauter.DropToTop = false;
+            this.comboBox_RuneSauter.Location = new System.Drawing.Point(31, 70);
+            this.comboBox_RuneSauter.MaximumSize = new System.Drawing.Size(275, 577);
+            this.comboBox_RuneSauter.MinimumSize = new System.Drawing.Size(275, 50);
+            this.comboBox_RuneSauter.Name = "comboBox_RuneSauter";
+            this.comboBox_RuneSauter.Size = new System.Drawing.Size(275, 50);
+            this.comboBox_RuneSauter.TabIndex = 30;
+            // 
             // Frm_Forgemagie
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -570,5 +588,6 @@
         private RuneAPasser runeAPasser1;
         private MaterialSkin.Controls.MaterialLabel lbl_puit;
         private System.Windows.Forms.FlowLayoutPanel panel_history;
+        private System.Windows.Forms.Button btn_ok;
     }
 }

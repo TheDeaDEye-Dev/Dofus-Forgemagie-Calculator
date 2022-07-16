@@ -61,6 +61,16 @@ namespace Dofus_Fm.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Eo_circle_green_checkmark_svg {
+            get {
+                object obj = ResourceManager.GetObject("Eo_circle_green_checkmark.svg", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
         /// </summary>
         internal static System.Drawing.Icon favicon {

@@ -31,5 +31,11 @@ namespace Dofus_Fm
             get => lblCb.Text;
             set => lblCb.Text = value;
         }
+        public void Clear()
+        {
+            Image = null;
+            cbRunes = string.Empty;
+            Text = string.Empty;
+        }
     }
 }

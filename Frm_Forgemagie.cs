@@ -112,22 +112,25 @@ namespace Dofus_Fm
             Historique historique = new Historique(imageList1.Images[int.Parse(comboBox_RuneRetirer.rune.icon)], null, $"à {DateTime.Now.ToShortTimeString()} ({comboBox_RuneRetirer.rune.label})", $"{puitRetirer} puit retiré ", $" Total : {puit}");
             panel_history.Controls.Add(historique);
         }
-
+        private double reste;
+        private int cbRunes;
         private void btn_cbRunes_Click(object sender, EventArgs e)
         {
-            int cbRunes = (int)(puit / Double.Parse(Regex.Match(comboBox_RuneAPasser.rune.weight, @"\d+").Value));
-            double reste = puit % Double.Parse(Regex.Match(comboBox_RuneAPasser.rune.weight, @"\d+").Value);
+            cbRunes = (int)(puit / Double.Parse(Regex.Match(comboBox_RuneAPasser.rune.weight, @"\d+").Value));
+            reste = puit % Double.Parse(Regex.Match(comboBox_RuneAPasser.rune.weight, @"\d+").Value);
             runeAPasser1.Image = imageList1.Images[int.Parse(comboBox_RuneAPasser.rune.icon)];
             runeAPasser1.Text = comboBox_RuneAPasser.rune.label;
             runeAPasser1.cbRunes = cbRunes + "x ";
             lbl_reste.Text = $"Il restera {reste} de puit.";
+            btn_ok.Enabled = btn_ok.Visible = true;
+
         }
         private void addHistory(string action)
         {
             Historique historique = new Historique(null, null, $"à {DateTime.Now.ToShortTimeString()} ", action, $" Total : {puit}");
             panel_history.Controls.Add(historique);
         }
-
+            
         private void panel_history_SizeChanged(object sender, EventArgs e)
         {
             int count = panel_history.Controls.Count;
@@ -135,6 +138,22 @@ namespace Dofus_Fm
             {
              panel_history.AutoScroll = true;
             }
+        }
+
+        private void btn_ok_Click(object sender, EventArgs e)
+        {
+            double oldPuit = puit;
+            puit = puit - cbRunes * Double.Parse(Regex.Match(comboBox_RuneAPasser.rune.weight, @"\d+").Value);
+            Historique historique = new Historique(imageList1.Images[int.Parse(comboBox_RuneAPasser.rune.icon)], null, $"à {DateTime.Now.ToShortTimeString()} ({comboBox_RuneAPasser.rune.label} x {cbRunes})", $"{oldPuit - reste} puit retiré", $" Total : {puit}");
+            panel_history.Controls.Add(historique);
+            lbl_puit.Text = puit+"" ;
+            btn_ok.Enabled =  btn_ok.Visible = false;
+            runeAPasser1.Visible=false;
+            lbl_reste.Visible = false;
+            runeAPasser1.Clear();
+            lbl_reste.Text = string.Empty;
+            runeAPasser1.Visible = true;
+            lbl_reste.Visible = false;
         }
     }
 }
